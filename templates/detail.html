@@ -9,6 +9,27 @@
       <div class="blog-post">
         <p>{{article.content}}</p>
       </div>
+      <div>
+        {% for comment in article.article_comments.all %} 
+            {{ comment.username }} : {{comment.content}}<div></div>
+        {% endfor %}
+      </div>
+      <div class="reply-form">
+        <form class="form-inline" method="POST" action="">
+            {% csrf_token %}
+            <div>
+                <div class="form-group">
+                    <input class="form-control" name="username" placeholder="닉네임"/>
+                </div>
+                <div class="form-group col-sm6">
+                    <input class="form-control" name="content" placeholder="내용"/>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default" type="submit">댓글 달기</button>
+                </div>
+            </div>
+        </form>
+      </div>
     </div>
     <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
       <div class="sidebar-module">
