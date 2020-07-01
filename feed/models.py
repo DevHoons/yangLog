@@ -6,8 +6,8 @@ class Article(models.Model):
     DEVELOPMENT = "dv"
     PERSONAL = "ps"
     CATEGORY_CHOICES = (
-        (DEVELOPMENT, "development"),
-        (PERSONAL, "personal"),
+        (DEVELOPMENT, "개발이야기"),
+        (PERSONAL, "일상이야기"),
     )
 
     title = models.CharField(max_length=200)
