@@ -31,7 +31,7 @@
         <h4>해쉬태그</h4>
         <ol class="list-unstyled">
           {% for hashtag in hashtag_list %}
-          <li>#{{ hashtag }}</li>
+          <li><a href="/?hashtag={{ hashtag }}">#{{ hashtag }}</a></li>
           {% endfor %}
         </ol>
       </div>

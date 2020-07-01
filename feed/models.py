@@ -1,6 +1,13 @@
 from django.db import models
 
 
+class HashTag(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
 class Article(models.Model):
 
     DEVELOPMENT = "dv"
@@ -16,6 +23,8 @@ class Article(models.Model):
         max_length=2, choices=CATEGORY_CHOICES, default=DEVELOPMENT
     )
 
+    hashtag = models.ManyToManyField(HashTag)
+
     def __str__(self):
         return self.title
 
@@ -28,9 +37,3 @@ class Comment(models.Model):
     def __str__(self):
         return "{}의 댓글: {}".format(self.article.title, self.content)
 
-
-class HashTag(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.name
